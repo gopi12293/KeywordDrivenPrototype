@@ -91,7 +91,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">3 methods,   3 passed</span>
+                    <span class="method-stats">5 methods,   5 passed</span>
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -107,7 +107,17 @@
                       <br/>
                       <span>
                         <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="prototype.Tests" hash-for-method="testcase2">testcase2</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
                         <a href="#" class="method navigator-link" panel-name="suite-Suite" title="prototype.Tests" hash-for-method="testcase3">testcase3</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="prototype.Tests" hash-for-method="testcase4">testcase4</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
@@ -142,9 +152,23 @@
               </div> <!-- method -->
               <div class="method">
                 <div class="method-content">
+                  <a name="testcase2">
+                  </a> <!-- testcase2 -->
+                  <span class="method-name">testcase2</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
                   <a name="testcase3">
                   </a> <!-- testcase3 -->
                   <span class="method-name">testcase3</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testcase4">
+                  </a> <!-- testcase4 -->
+                  <span class="method-name">testcase4</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
@@ -212,24 +236,32 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(3);
+data.addRows(5);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'testcase5')
+data.setCell(0, 1, 'testcase1')
 data.setCell(0, 2, 'prototype.Tests')
-data.setCell(0, 3, 47);
+data.setCell(0, 3, 118);
 data.setCell(1, 0, 1)
-data.setCell(1, 1, 'testcase1')
+data.setCell(1, 1, 'testcase2')
 data.setCell(1, 2, 'prototype.Tests')
-data.setCell(1, 3, 38);
+data.setCell(1, 3, 113);
 data.setCell(2, 0, 2)
-data.setCell(2, 1, 'testcase3')
+data.setCell(2, 1, 'testcase5')
 data.setCell(2, 2, 'prototype.Tests')
-data.setCell(2, 3, 31);
+data.setCell(2, 3, 105);
+data.setCell(3, 0, 3)
+data.setCell(3, 1, 'testcase4')
+data.setCell(3, 2, 'prototype.Tests')
+data.setCell(3, 3, 104);
+data.setCell(4, 0, 4)
+data.setCell(4, 1, 'testcase3')
+data.setCell(4, 2, 'prototype.Tests')
+data.setCell(4, 3, 103);
 window.suiteTableData['Suite']= { tableData: data, tableDiv: 'times-div-Suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 116 ms</span>
+              <span class="suite-total-time">Total running time: 543 ms</span>
               <div id="times-div-Suite">
               </div> <!-- times-div-Suite -->
             </div> <!-- times-div -->
@@ -244,18 +276,9 @@ return data;
         </div> <!-- panel -->
         <div panel-name="ignored-methods-Suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">2 ignored methods</span>
+            <span class="header-content">0 ignored methods</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
-            <div class="ignored-class-div">
-              <span class="ignored-class-name">prototype.Tests</span>
-              <div class="ignored-methods-div">
-                <span class="ignored-method-name">testcase4</span>
-                <br/>
-                <span class="ignored-method-name">testcase2</span>
-                <br/>
-              </div> <!-- ignored-methods-div -->
-            </div> <!-- ignored-class-div -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
         <div panel-name="chronological-Suite" class="panel">
@@ -271,15 +294,23 @@ return data;
               </div> <!-- configuration-class before -->
               <div class="test-method">
                 <span class="method-name">testcase1</span>
-                <span class="method-start">84 ms</span>
+                <span class="method-start">172 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">testcase2</span>
+                <span class="method-start">292 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">testcase3</span>
-                <span class="method-start">122 ms</span>
+                <span class="method-start">410 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">testcase4</span>
+                <span class="method-start">523 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">testcase5</span>
-                <span class="method-start">153 ms</span>
+                <span class="method-start">629 ms</span>
               </div> <!-- test-method -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

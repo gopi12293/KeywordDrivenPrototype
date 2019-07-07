@@ -4,9 +4,14 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.LinkedHashMap;
+import java.util.Map;
 import java.util.Properties;
+import java.util.Map.Entry;
 
 import org.apache.poi.EncryptedDocumentException;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
@@ -19,7 +24,9 @@ public class Utils {
 	public static Properties properties;
 	public static Workbook workbook;
 	public static Sheet sheet;
+	public static Method method;
 
+	Keywords keywords;
 	public String getdata(String filepath, int row, int col)
 			throws EncryptedDocumentException, InvalidFormatException, IOException {
 		// TODO Auto-generated method stub
@@ -44,6 +51,18 @@ public class Utils {
 		int rowcount = sheet.getLastRowNum();
 
 		return rowcount;
+	}
+
+	public int colcount(String filepath, int row) throws EncryptedDocumentException, IOException {
+		File file = new File(filepath);
+		FileInputStream fileInputStream = new FileInputStream(file);
+
+		workbook = WorkbookFactory.create(fileInputStream);
+
+		sheet = workbook.getSheet("Sheet1");
+		int colcount = sheet.getRow(row).getLastCellNum();
+
+		return colcount;
 	}
 
 	public String readprop() {
@@ -81,5 +100,34 @@ public class Utils {
 		}
 		return totalkeys;
 
+	}
+
+	public Map<Integer, ArrayList<String>> fulldata(String filepath)
+			throws EncryptedDocumentException, IOException, InvalidFormatException {
+		Map<Integer, ArrayList<String>> map = new LinkedHashMap<Integer, ArrayList<String>>();
+		Utils utils = new Utils();
+		File file = new File(filepath);
+		FileInputStream fileInputStream = new FileInputStream(file);
+		workbook = WorkbookFactory.create(fileInputStream);
+		sheet = workbook.getSheet("Sheet1");
+		int rowcount = sheet.getLastRowNum();
+		for (int j = 0; j <= rowcount; j++) {
+			ArrayList<String> bothdata = new ArrayList<String>();
+			bothdata.add(utils.getdata(Keywords.filepath, j, 0));
+			int colcount = utils.colcount(Keywords.filepath, j);
+			if (colcount > 1) {
+				bothdata.add(utils.getdata(Keywords.filepath, j, 1));
+			}
+			map.put(j, bothdata);
+		}
+		return map;
+	}
+	public void invoke(Map<Integer, ArrayList<String>> map) throws NoSuchMethodException, SecurityException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+		keywords = new Keywords();
+		for(Entry e:map.entrySet()){
+			Keywords.data1=(ArrayList<String>) e.getValue();
+			method = keywords.getClass().getMethod(Keywords.data1.get(0));
+			method.invoke(keywords);
+		}
 	}
 }
