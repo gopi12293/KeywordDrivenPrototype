@@ -9,8 +9,12 @@
     <classes>
       <class name="prototype.Tests">
         <methods>
-          <include name="testcase"/>
+          <include name="testcase4"/>
+          <include name="testcase1"/>
+          <include name="testcase3"/>
           <include name="activecases"/>
+          <include name="testcase5"/>
+          <include name="testcase2"/>
         </methods>
       </class> <!-- prototype.Tests -->
     </classes>
